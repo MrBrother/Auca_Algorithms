@@ -1,13 +1,30 @@
-#include <iostream>
-#include <algorithm>
-
+#include <bits/stdc++.h>
 using namespace std;
+int a[20];
+int n, m;
 
+void f(int v = 0, int c = 0){
+  if(v==4){
+    for(int i = 0; i < n; i++){
+      cout << a[i];
+    }
+    cout << endl;
+  }else{
+    if(n - v > m - c){
+      a[v]=0;
+      f(v+1, c);
+    }
+    if(c < m){
+      a[v] = 1;
+      f(v+1,c+1);
+    }
+  }
+}
 int main(){
-  int n; cin >> n;
-  int x, y; cin >> x >> y;
-  string a = string(x-y,'0') + string(y,'1');
-  do{
-    cout << a << endl;
-  }while(next_permutation(a.begin(), a.end()));
+  int x;cin >>x;
+  while (x--) {
+    cin >> n >> m;
+    f();
+  }
+  return 0;
 }
