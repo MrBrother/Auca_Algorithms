@@ -4,7 +4,7 @@ int a[20];
 int n, m;
 
 void f(int v = 0, int c = 0){
-  if(v==4){
+  if(v==n){
     for(int i = 0; i < n; i++){
       cout << a[i];
     }
@@ -25,6 +25,8 @@ int main(){
   while (x--) {
     cin >> n >> m;
     f();
+    if(x)
+      cout << endl;
   }
   return 0;
 }
