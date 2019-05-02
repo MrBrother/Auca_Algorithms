@@ -11,6 +11,7 @@ class Algo{
 
   private:
   static void merge(std::vector<int>& v, int l, int m, int r);
+  static int partition(std::vector<int>& v, int l, int m);
 
   public:
   static Viter binarySearch(Viter begin, Viter end, int e);
@@ -19,7 +20,8 @@ class Algo{
 
   // Merge Sort
   static void mergeSort(std::vector<int>& v, int l, int r);
-
+  // Quick
+  static void quickSort(std::vector<int>& v, int low, int high);
 
 };
 

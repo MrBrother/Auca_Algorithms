@@ -1,5 +1,6 @@
 #include "algol.h"
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 using Viter = vector<int>::const_iterator;
@@ -88,5 +89,31 @@ void Algo::mergeSort(vector<int>& v, int l, int r){
     mergeSort(v, m + 1, r);
 
     merge(v, l, m, r);
+  }
+}
+
+
+// Quick sort worst case n^2 and average  of n log n
+
+int Algo::partition(std::vector<int>& v, int low, int high){
+  int pivot = v[high];
+  int i = (low - 1);
+  for(int j = low; j <= high - 1; j++){
+    if(v[j] <= pivot){
+      i++;
+      swap(v[i], v[j]);
+    }
+  }
+  swap(v[i+1], v[high]);
+  return i + 1;
+}
+
+void Algo::quickSort(std::vector<int>& v, int low, int high){
+  if(low < high){
+
+    int pivot = partition(v, low, high);
+    quickSort(v, low, pivot - 1);
+    quickSort(v, pivot + 1, high);
+
   }
 }
